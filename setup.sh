@@ -14,9 +14,10 @@ for ZONE in "${ZONES[@]}"; do
 
   if gcloud compute instances create $VM_NAME \
     --zone=$ZONE \
-    --machine-type=e2-micro \
+    --machine-type=e2-medium \
     --image-family=debian-11 \
     --image-project=debian-cloud \
+    --scopes=https://www.googleapis.com/auth/cloud-platform \
     --metadata-from-file startup-script=startup.sh; then
 
     echo "VM created successfully in $ZONE"
