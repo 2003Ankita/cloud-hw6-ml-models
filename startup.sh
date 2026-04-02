@@ -1,4 +1,6 @@
 #!/bin/bash
+exec > /var/log/startup-script.log 2>&1
+echo "Startup script started..."
 
 # Run only once
 if [ -f /var/log/startup_already_done ]; then
@@ -13,8 +15,7 @@ apt-get update
 apt-get install -y python3 python3-pip git wget
 
 # Install Python libraries
-pip3 install pandas scikit-learn psycopg2-binary google-cloud-storage
-
+pip3 install pandas scikit-learn psycopg2-binary google-cloud-storage || exit 1
 # Create working directory
 mkdir -p /opt/hw6
 cd /opt/hw6
