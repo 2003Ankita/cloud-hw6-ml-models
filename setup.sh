@@ -3,7 +3,7 @@
 set -e  # stop on error
 
 PROJECT_ID=$(gcloud config get-value project)
-ZONE="us-east1-b"
+ZONE="us-east1-c"
 VM_NAME="hw6-vm"
 
 echo "Using project: $PROJECT_ID"
